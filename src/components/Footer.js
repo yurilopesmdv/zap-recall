@@ -5,27 +5,27 @@ import party from "../assets/party.png"
 import sad from "../assets/sad.png"
 
 export default function Footer(props) {
-    const {completed, sequencia, height} = props
-    
-    if(completed === 0){
+    const { completed, sequencia, height } = props
+
+    if (completed === 0) {
         return (
             <DivFooter height={height}>
                 <h2>{completed}/8 concluídos</h2>
             </DivFooter>
         )
     }
-    if(completed < 8) {
+    if (completed < 8) {
         return (
             <DivFooter height={height}>
                 <h2>{completed}/8 concluídos</h2>
                 <div>
-                    {sequencia.map( (icone, index) => <img key={index} src={icone} alt={'icone'} />    )}
+                    {sequencia.map((icone, index) => <img key={index} src={icone} alt={'icone'} />)}
                 </div>
             </DivFooter>
         )
     }
-    if(completed === 8 && !sequencia.includes(icone_erro)){
-        
+    if (completed === 8 && !sequencia.includes(icone_erro)) {
+
         return (
             <DivFooter height={height}>
                 <div>
@@ -33,31 +33,34 @@ export default function Footer(props) {
                     <h1>Parabéns!</h1>
                 </div>
                 <h2>Você não esqueceu de nenhum flashcard!</h2>
+
                 <h2>{completed}/8 concluídos</h2>
                 <div>
-                    {sequencia.map( (icone) => <img key={icone} src={icone} alt={'icone'} />    )}
+                    {sequencia.map((icone) => <img key={icone} src={icone} alt={'icone'} />)}
                 </div>
             </DivFooter>
         )
     }
-    if(completed === 8 && sequencia.includes(icone_erro)) {
-        
+    if (completed === 8 && sequencia.includes(icone_erro)) {
+
         return (
             <DivFooter height={height}>
-                <div>
-                    <img src={sad} alt={'sad'} />
-                    <h1>Putz...</h1>
-                </div>
-                <h2>Ainda faltam alguns...
-                    Mas não desanime!</h2>
+                <FinishText data-test="finish-text">
+                    <div>
+                        <img src={sad} alt={'sad'} />
+                        <h1>Putz...</h1>
+                    </div>
+                    <h2>Ainda faltam alguns...
+                        Mas não desanime!</h2>
+                </FinishText>
                 <h2>{completed}/8 concluídos</h2>
                 <div>
-                    {sequencia.map( (icone) => <img key={icone} src={icone} alt={'icone'} />    )}
+                    {sequencia.map((icone) => <img key={icone} src={icone} alt={'icone'} />)}
                 </div>
             </DivFooter>
         )
     }
-    
+
 }
 const DivFooter = styled.div`
     position: fixed;
@@ -68,7 +71,7 @@ const DivFooter = styled.div`
     width: 100%;
     background-color: #FFFFFF;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
-    height: ${ (props) => props.height};
+    height: ${(props) => props.height};
     bottom: 0;
     h2 {
         font-family: 'Recursive';
@@ -85,4 +88,9 @@ const DivFooter = styled.div`
             margin: 10px 3px;
         }
     }
+`
+const FinishText = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `

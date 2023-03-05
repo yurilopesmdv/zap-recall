@@ -22,7 +22,7 @@ export default function Tela() {
                 setSequencia={setSequencia}
                 setHeight={setHeight}
                 height={height} />
-            <Footer completed={completed}
+            <Footer data-test="footer" completed={completed}
                 sequencia={sequencia}
                 height={height}
             />

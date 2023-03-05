@@ -8,7 +8,7 @@ export default function TelaInicial(props) {
         <Fundo>
             <img src={logo} alt="logo" />
             <h1>ZapRecall</h1>
-            <button onClick={iniciar}>Iniciar Recall</button>
+            <button data-test="start-btn" onClick={iniciar}>Iniciar Recall</button>
         </Fundo>
     );
 }
