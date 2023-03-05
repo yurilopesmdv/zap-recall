@@ -33,7 +33,7 @@ export default function Footer(props) {
 
         return (
             <DivFooter data-test="footer" height={height}>
-                <FinishText >
+                <FinishText data-test="finish-text">
                     <div>
                         <img src={party} alt={'party'} />
                         <h1>Parabéns!</h1>
