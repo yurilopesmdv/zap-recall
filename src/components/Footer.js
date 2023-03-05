@@ -9,14 +9,14 @@ export default function Footer(props) {
 
     if (completed === 0) {
         return (
-            <DivFooter height={height}>
+            <DivFooter data-test="footer" height={height}>
                 <h2>{completed}/8 concluídos</h2>
             </DivFooter>
         )
     }
     if (completed < 8) {
         return (
-            <DivFooter height={height}>
+            <DivFooter data-test="footer" height={height}>
                 <h2>{completed}/8 concluídos</h2>
                 <div>
                     {sequencia.map((icone, index) => <img key={index} src={icone} alt={'icone'} />)}
@@ -27,7 +27,7 @@ export default function Footer(props) {
     if (completed === 8 && !sequencia.includes(icone_erro)) {
 
         return (
-            <DivFooter height={height}>
+            <DivFooter data-test="footer" height={height}>
                 <div>
                     <img src={party} alt={'party'} />
                     <h1>Parabéns!</h1>
@@ -44,7 +44,7 @@ export default function Footer(props) {
     if (completed === 8 && sequencia.includes(icone_erro)) {
 
         return (
-            <DivFooter height={height}>
+            <DivFooter data-test="footer" height={height}>
                 <FinishText data-test="finish-text">
                     <div>
                         <img src={sad} alt={'sad'} />
