@@ -69,14 +69,14 @@ export default function Card(props) {
                     <h1 data-test="flashcard-text">{object.question}</h1>
                 </DivPergunta>
                 <DivReposta>
-                    <img data-test="turn=btn" onClick={mostrarResposta} src={seta_virar} alt={"seta_virar"} />
+                    <img data-test="turn-btn" onClick={mostrarResposta} src={seta_virar} alt={"seta_virar"} />
                 </DivReposta>
             </PerguntaMostrada>
         )
     }
     if(cardState === 2) {
         return (
-            <PerguntaMostrada>
+            <PerguntaMostrada data-test="flashcard">
                 <DivPergunta>
                     <h1 data-test="flashcard-text">{object.answer}</h1>
                 </DivPergunta>
