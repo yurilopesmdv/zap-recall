@@ -1,11 +1,14 @@
 import { useState } from "react"
 import styled from "styled-components"
 import icone_erro from "../assets/icone_erro.png"
+import icone_certo from "../assets/icone_certo.png"
+import icone_quase from "../assets/icone_quase.png"
 import party from "../assets/party.png"
 import sad from "../assets/sad.png"
 
 export default function Footer(props) {
     const { completed, sequencia, height } = props
+    const dataTest = [ "no-icon", "zap-icon", "partial-icon"]
 
     if (completed === 0) {
         return (
@@ -19,7 +22,9 @@ export default function Footer(props) {
             <DivFooter data-test="footer" height={height}>
                 <h2>{completed}/8 concluídos</h2>
                 <div>
-                    {sequencia.map((icone, index) => <img key={index} src={icone} alt={'icone'} />)}
+                    {sequencia.map((icone, index) => <img data-test={ icone === icone_erro ?
+                                                                    dataTest[0] : icone === icone_certo ?
+                                                                    dataTest[1] : dataTest[2]} key={index} src={icone} alt={'icone'} />)}
                 </div>
             </DivFooter>
         )
@@ -36,7 +41,7 @@ export default function Footer(props) {
 
                 <h2>{completed}/8 concluídos</h2>
                 <div>
-                    {sequencia.map((icone) => <img key={icone} src={icone} alt={'icone'} />)}
+                    {sequencia.map((icone) => <img data-test="" key={icone} src={icone} alt={'icone'} />)}
                 </div>
             </DivFooter>
         )
@@ -55,7 +60,7 @@ export default function Footer(props) {
                 </FinishText>
                 <h2>{completed}/8 concluídos</h2>
                 <div>
-                    {sequencia.map((icone) => <img key={icone} src={icone} alt={'icone'} />)}
+                    {sequencia.map((icone) => <img data-test="" key={icone} src={icone} alt={'icone'} />)}
                 </div>
             </DivFooter>
         )
