@@ -13,7 +13,7 @@ export default function TelaInicial(props) {
     );
 }
 const Fundo = styled.div`
-    width: 100%;
+    width: 100vh;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -43,5 +43,8 @@ const Fundo = styled.div`
     @media(max-width: 600px) {
         width: 100vw;
         height: 100vh;
+        button {
+            width: 40%;
+        }
     }
 `;
