@@ -8,7 +8,7 @@ import sad from "../assets/sad.png"
 
 export default function Footer(props) {
     const { completed, sequencia, height } = props
-    const dataTest = [ "no-icon", "zap-icon", "partial-icon"]
+    const dataTest = ["no-icon", "zap-icon", "partial-icon"]
 
     if (completed === 0) {
         return (
@@ -22,9 +22,9 @@ export default function Footer(props) {
             <DivFooter data-test="footer" height={height}>
                 <h2>{completed}/8 concluídos</h2>
                 <div>
-                    {sequencia.map((icone, index) => <img data-test={ icone === icone_erro ?
-                                                                    dataTest[0] : icone === icone_certo ?
-                                                                    dataTest[1] : dataTest[2]} key={index} src={icone} alt={'icone'} />)}
+                    {sequencia.map((icone, index) => <img data-test={icone === icone_erro ?
+                        dataTest[0] : icone === icone_certo ?
+                            dataTest[1] : dataTest[2]} key={index} src={icone} alt={'icone'} />)}
                 </div>
             </DivFooter>
         )
@@ -33,12 +33,13 @@ export default function Footer(props) {
 
         return (
             <DivFooter data-test="footer" height={height}>
-                <div>
-                    <img src={party} alt={'party'} />
-                    <h1>Parabéns!</h1>
-                </div>
-                <h2>Você não esqueceu de nenhum flashcard!</h2>
-
+                <FinishText >
+                    <div>
+                        <img src={party} alt={'party'} />
+                        <h1>Parabéns!</h1>
+                    </div>
+                    <h2>Você não esqueceu de nenhum flashcard!</h2>
+                </FinishText>
                 <h2>{completed}/8 concluídos</h2>
                 <div>
                     {sequencia.map((icone) => <img data-test="" key={icone} src={icone} alt={'icone'} />)}
